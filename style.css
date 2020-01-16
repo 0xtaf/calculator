@@ -1,0 +1,8 @@
+.result {
+    border: 1px solid;
+    width: 130px;
+    height: 50px;
+    text-align: end;
+    vertical-align: bottom;
+    display: table-cell;
+}
