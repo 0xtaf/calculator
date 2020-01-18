@@ -12,13 +12,20 @@ let control = 0;
 function displayResult(resultScreen){
     let finalResult = new Function('"use strict";return ' + resultScreen)();    
     // return finalResult.toPrecision(2);  
-    return finalResult;
+    if (finalResult.toString().length >= 12){
+        let count = parseInt(Math.round(finalResult).toString().length);
+        if (count > 11){
+            count = 11;
+        }
+        return finalResult.toFixed(11-count);
+    } else {
+        return finalResult;
+    }
+   
 }
 
 
-//do the rounding and display length
-//https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
-//do the steps 8,9 and 10
+//do the steps 8 and 10
 
 function display(){
     
