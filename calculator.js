@@ -15,12 +15,17 @@ function displayResult(resultScreen){
     return finalResult;
 }
 
-//sonuçtan sonra input girilirse baştan yazsın
+
+//do the rounding and display length
+//https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+//do the steps 8,9 and 10
 
 function display(){
     
     if (this.textContent == "C"){
         screenAfterButtonClick.textContent = "";
+    } else if (this.textContent =="<"){
+        screenAfterButtonClick.textContent = screenAfterButtonClick.textContent.slice(0, -1);
     } else if((this.textContent == "*") || (this.textContent == "/") || (this.textContent == "+") || (this.textContent == "-")) {
         control = 0;
         if ((screenAfterButtonClick.textContent.substr(-1) == "*") || (screenAfterButtonClick.textContent.substr(-1) == "/")

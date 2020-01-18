@@ -54,6 +54,10 @@ padding: 20px;
     background: #404D5E;
 }
 
+.button.o{
+    background: #404D5E;
+    color: #D95D4E;
+}
 .result {
     margin-top: 20px;
     font-size: 35px;
