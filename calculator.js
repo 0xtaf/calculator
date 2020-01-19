@@ -2,7 +2,9 @@ const screenAfterButtonClick = document.querySelector('p');
 screenAfterButtonClick.className = "result";
 const buttons = [...document.querySelectorAll('button')];
 const dotbutton = document.querySelector('button[id="."]');
+let keyboardInput = "";
 
+window.addEventListener('keydown', keyboard);
 
 buttons.forEach(button => {
     button.addEventListener('click', display);
@@ -20,15 +22,78 @@ function displayResult(resultScreen){
         return finalResult.toFixed(11-count);
     } else {
         return finalResult;
-    }
-   
+    }   
 }
 
 
-//do the steps 8 and 10
+//add keyboard support
+function keyboard(){
+    console.log(event.keyCode);
+    if ((event.keyCode == 49) || (event.keyCode == 97)){
+        keyboardInput = "1";
+        display();
+    } else if ((event.keyCode == 48) || (event.keyCode == 96)){
+        keyboardInput = "0";
+        display();
+    } else if ((event.keyCode == 50) || (event.keyCode == 98)){
+        keyboardInput = "2";
+        display();
+    } else if ((event.keyCode == 51) || (event.keyCode == 99)){
+        keyboardInput = "3";
+        display();
+    } else if ((event.keyCode == 52) || (event.keyCode == 100)){
+        keyboardInput = "4";
+        display();
+    } else if ((event.keyCode == 53) || (event.keyCode == 101)){
+        keyboardInput = "5";
+        display();
+    } else if ((event.keyCode == 54) || (event.keyCode == 102)){
+        keyboardInput = "6";
+        display();
+    } else if ((event.keyCode == 55) || (event.keyCode == 103)){
+        keyboardInput = "7";
+        display();
+    } else if ((event.keyCode == 56) || (event.keyCode == 104)){
+        keyboardInput = "8";
+        display();
+    } else if ((event.keyCode == 57) || (event.keyCode == 105)){
+        keyboardInput = "9";
+        display();
+    } else if (event.keyCode == 46){
+        keyboardInput = "C";
+        display();
+    } else if (event.keyCode == 191){
+        keyboardInput = ".";
+        display();
+    } else if (event.keyCode == 106){
+        keyboardInput = "*";
+        display();
+    } else if (event.keyCode == 111){
+        keyboardInput = "/";
+        display();
+    } else if (event.keyCode == 107){
+        keyboardInput = "+";
+        display();
+    } else if (event.keyCode == 109){
+        keyboardInput = "-";
+        display();
+    } else if (event.keyCode == 13){
+        keyboardInput = "=";
+        display();
+    } else if (event.keyCode == 8){
+        keyboardInput = "<";
+        display();
+    }
+    keyboardInput = "";
+}
+
+
+
 
 function display(){
-    
+    if (keyboardInput != ""){
+        this.textContent = keyboardInput;
+    }
     if (this.textContent == "C"){
         screenAfterButtonClick.textContent = "";
     } else if (this.textContent =="<"){
@@ -64,4 +129,6 @@ function display(){
         screenAfterButtonClick.textContent = displayResult(`${screenAfterButtonClick.textContent}`);
         control = 1;
     }
+    
+    keyboardInput = "";
 }
